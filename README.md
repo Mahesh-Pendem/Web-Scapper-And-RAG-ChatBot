@@ -1,24 +1,55 @@
 # 🌐 AI Web Scraper + 🤖 RAG Chatbot
 
-An intelligent web application built using **Streamlit** that combines **web scraping**, **PDF parsing**, and **Retrieval-Augmented Generation (RAG)** to answer user queries using both online content and uploaded documents.
+An intelligent web app that combines **real-time web scraping**, **PDF document parsing**, and **Retrieval-Augmented Generation (RAG)** to enable users to ask contextual questions and receive AI-generated answers powered by **LLaMA 3** from Groq and **Hugging Face Embeddings**.
+
+Built with 🧠 **LangChain**, 🖥️ **Streamlit**, 📄 **ChromaDB**, and ⚙️ **Groq LLM APIs**.
 
 ---
 
-## 🚀 Features
+## 📌 Features
 
-- **Web Scraping**: Enter any website URL to extract and clean the body content.
-- **PDF Parsing**: Automatically loads and processes local PDF documents.
-- **Embeddings with Hugging Face**: Uses `all-MiniLM-L6-v2` for semantic search.
-- **Vector Store**: Stores chunks in a local Chroma DB for retrieval.
-- **Chat with Context**: Uses LangChain's `RunnableWithMessageHistory` and Groq's `llama3` model for contextual chat.
-- **RAG Pipeline**: Retrieval + Answer generation using LangChain's retriever and document chain.
-- **Streamlit UI**: Clean, interactive interface with styled widgets.
+### 🔍 Web Scraping
+- Scrape a given website URL and extract the readable content from the `<body>` tag.
+- Cleaned content is shown in an expandable box and stored for chat-based queries.
+
+### 📄 PDF Support
+- Loads PDF documents using `PyPDFLoader`.
+- Automatically chunks documents into semantic pieces with `RecursiveCharacterTextSplitter`.
+
+### 🧠 RAG-Based Q&A
+- Uses Hugging Face `all-MiniLM-L6-v2` embeddings for semantic vector storage via Chroma.
+- Retrieves relevant document chunks based on the question context.
+- Uses Groq’s LLaMA 3 (llama3-8b-8192) via LangChain to answer user queries.
+
+### 💬 Conversational Memory
+- Maintains per-session chat history using LangChain’s `ChatMessageHistory`.
+- Capable of understanding follow-up questions using history-aware retrieval.
 
 ---
 
-## 📦 Dependencies
+## 📁 Project Structure
 
-Install all Python dependencies using:
+
+---
+
+## 🔧 Tech Stack
+
+| Component        | Description                              |
+|------------------|------------------------------------------|
+| Streamlit        | UI for input/output interaction          |
+| LangChain        | RAG pipeline + memory + chaining         |
+| Chroma           | Vector DB for storing document chunks    |
+| HuggingFace      | MiniLM Embeddings                        |
+| Groq             | LLaMA 3 LLM (`llama3-8b-8192`)           |
+| PyPDFLoader      | PDF document reading                     |
+
+---
+
+## ⚙️ Setup Instructions
+
+### 1. Clone the repository
 
 ```bash
-pip install -r requirements.txt
+git clone https://github.com/YOUR_USERNAME/YOUR_REPO_NAME.git
+cd YOUR_REPO_NAME
+
